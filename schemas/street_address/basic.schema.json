@@ -1,16 +1,13 @@
 {
     "$identity": "",
     "$schemaStandard": "",
-    "title":"address",
+    "title": "address",
     "type": "object",
-    "properties": 
-    {
-        "streetNumber":{
-            "type":"integer",
-            "minimum":1,
-            "description":""
+    "properties": {
+        "streetNumber": {
+            "type": "integer",
+            "minimum": 1,
+            "description": ""
         }
-
     }
-
 }
