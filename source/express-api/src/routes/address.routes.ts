@@ -4,12 +4,7 @@ import { UserController } from './../controllers/user.controller';
 
 export const userRoutes = (app: express.Application, userController: UserController) => {
 
-    app.route('/users')
+    app.route('/address/')
         .get(userController.fetchAllUsers)
         .post(userController.createNewUser);
-
-    app.route('/users/:id')
-        .get(userController.fetchUserById)
-        .put(userController.updateUser)
-        .delete(userController.deleteUser);
 }
