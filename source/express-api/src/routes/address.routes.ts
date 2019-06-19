@@ -1,10 +1,10 @@
 import * as express from 'express';
-import { UserController } from './../controllers/user.controller';
+import { AddressController } from '../controllers/address.controller';
 
 
-export const userRoutes = (app: express.Application, userController: UserController) => {
 
-    app.route('/address/')
-        .get(userController.fetchAllUsers)
-        .post(userController.createNewUser);
+export const addressRoutes = (app: express.Application, addressController: AddressController) => {
+
+    app.route('/address')
+        .get(addressController.verifyAdress)
 }
