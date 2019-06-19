@@ -1,5 +1,11 @@
 # Lucid Address Verification API
 
+## Running instructons
+
+* Navigate to ./source/express-api and run **npm install**
+* To run locally, use **npm run start**
+
+
 ## Features
 
 * Unambiguous address verifcation service
