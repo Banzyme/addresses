@@ -30,3 +30,15 @@
 
 4.1. Normal
 4.2. Verbose
+
+<hr>
+<hr>
+
+## Project structure
+
+* Root
+  * Models
+  * Controllers
+  * Routes
+  * SharedModule
+  * index.js
