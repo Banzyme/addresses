@@ -1,18 +1,15 @@
-import express  =  require('express');
+import * as express from 'express';
+import * as swaggerUi from 'swagger-ui-express';
+import * as swaggerDocument from './../swagger.json';
 import { AppRoutesConfig } from './routes';
 
-const app = express();
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./../swagger.json');
-
+let app = express();
 app.set("PORT", process.env.PORT || 3001);
-const routes = new AppRoutesConfig(app);
 
+let router = express.Router();
+AppRoutesConfig.InitialiseAllRoutes(router);
 
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-// test route
-// app.get('/', (request, response)=>{
-//     response.send("Address API is live!");
-// });
+app.use('/api-docs/v1', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api/v1', router);
 
 export default app;

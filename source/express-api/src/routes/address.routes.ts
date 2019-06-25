@@ -1,10 +1,8 @@
 import * as express from 'express';
-import { AddressController } from '../controllers/address.controller';
+import { AddressController } from '../controllers';
 
+export const addressRoutes = (router: express.Router) => {
 
-
-export const addressRoutes = (app: express.Application, addressController: AddressController) => {
-
-    app.route('/address/:address_type?')
-        .get(addressController.verifyAdress)
+    router.route('/address/:address_type?')
+        .get(AddressController.verifyAdress)
 }
