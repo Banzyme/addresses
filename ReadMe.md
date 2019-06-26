@@ -21,7 +21,7 @@
             *     Addr3:    Private Bag X097
             *               Pretoria
             *               0001
-        * Within a building (Building address) -  Has word 'block', 'room','rm', 'floor','flr' or starts with Complex Name
+        * Within a building (Building address) -  Has word 'block', 'room','rm', 'floor','flr','suite' or starts with Complex Name
             * eg. Addr1:    Block 816 Diamond House, 
             *               Eloff Street, 
             *               Braamfontein
