@@ -52,7 +52,7 @@
 
 ## Address JSON Schema
 
-1. * <addressLine1> ,<complexNo>, <complexName> ,<streetNo>, <streetName>, <suburb> ,<city>, <province>, <zipCode>
+1. * Full: <address_line1> ,<complex_no>, <complex_name> ,<street_no>, <street_name>, <suburb> ,<city>, <province>, <zip_code>
 2. Room C2 2nd Floor, null,  Asterhof House, null ,  South Street, Hatfield,  null,  null  ,    null
 3. All fields not mandatory. Can just fill addressLine1 and see if Google Maps can autocomplete
 
