@@ -1,9 +1,12 @@
 export interface FullStreetAddressModel{
-    streeNo: number,
+    complexNo: string,
+    complexName: string,
+    streetNo: string,
     streetName: string,
-    areaName: string,
+    suburb: string,
     city: string,
     province: string,
+    zipCode: string
 }
 
 export const FullStreetAddressModelSchema = {
@@ -12,8 +15,18 @@ export const FullStreetAddressModelSchema = {
     "title": "fullStreetAddress",
     "type": "object",
     "properties": {
+        "complexNo": {
+            "type": "string",
+            "minimum": 1,
+            "description": ""
+        },
+        "complexName": {
+            "type": "string",
+            "minimum": 1,
+            "description": ""
+        },
         "streetNo": {
-            "type": "integer",
+            "type": "string",
             "minimum": 1,
             "description": ""
         },
@@ -21,7 +34,7 @@ export const FullStreetAddressModelSchema = {
             "type": "string",
             "description": ""
         },
-        "areaName": {
+        "suburb": {
             "type": "string",
             "description": ""
         },
@@ -32,6 +45,10 @@ export const FullStreetAddressModelSchema = {
         "province": {
             "type": "string",
             "description": ""
-        }
+        },
+        "zipCode": {
+            "type": "string",
+            "description": ""
+        },
     }
 }
