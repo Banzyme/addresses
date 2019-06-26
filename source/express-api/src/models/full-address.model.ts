@@ -18,22 +18,18 @@ export const FullStreetAddressModelSchema = {
     "properties": {
         "addressLine1": {
             "type": "string",
-            "minimum": 1,
             "description": ""
         },
         "complexNo": {
             "type": "string",
-            "minimum": 1,
             "description": ""
         },
         "complexName": {
             "type": "string",
-            "minimum": 1,
             "description": ""
         },
         "streetNo": {
             "type": "string",
-            "minimum": 1,
             "description": ""
         },
         "streetName": {
