@@ -1,15 +1,15 @@
 import * as express from 'express';
-import { UserController } from './../controllers/user.controller';
+import { UserController } from './../controllers';
 
 
-export const userRoutes = (app: express.Application, userController: UserController) => {
+export const userRoutes = (router: express.Router) => {
 
-    app.route('/users')
-        .get(userController.fetchAllUsers)
-        .post(userController.createNewUser);
+    router.route('/users')
+        .get(UserController.fetchAllUsers)
+        .post(UserController.createNewUser);
 
-    app.route('/users/:id')
-        .get(userController.fetchUserById)
-        .put(userController.updateUser)
-        .delete(userController.deleteUser);
+    router.route('/users/:id')
+        .get(UserController.fetchUserById)
+        .put(UserController.updateUser)
+        .delete(UserController.deleteUser);
 }
