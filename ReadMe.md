@@ -11,7 +11,7 @@
         * Domestic (street address)- no complex no/complexName, starts with streetNo/StreetName 
             * eg. Addr1:    Dr Lategan Road, Groenkloof
             *     Addr2:    1736 Pretorius Street, Arcadia, 0083
-        * Business (SAPO address)- consists of PO Box or private bag
+        * Business (SAPO address)- consists of PO Box or private bag, 'business' or 'company' or 'enterprise' or 'ltd' or 'pty'
             * eg. Addr1:    P. O. Box 1091
             *               Johannesburg
             *               2000
