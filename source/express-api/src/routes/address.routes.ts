@@ -3,6 +3,6 @@ import { AddressController } from '../controllers';
 
 export const addressRoutes = (router: express.Router) => {
     //TO-DO: is address_type necessary?
-    router.route('/address/:address_type?')
+    router.route('/address')
         .get(AddressController.verifyAddress)
 }

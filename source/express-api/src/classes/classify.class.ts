@@ -1,22 +1,23 @@
 import { FullStreetAddressModel } from "../models/full-address.model";
 
-const  api_helper= require('../adaptors/google-maps.repository')
 export class ClassifyClass{
     static classify (address: FullStreetAddressModel ) : String{
         //check for word smallholding in AddressLine1 or complexName
-        if(address.addressLine1.includes('smallholding') || address.complexName.includes('smallholding')){
+        const addressLine1LC = address.addressLine1.toLowerCase();
+        const complexNameLC = address.complexName.toLowerCase();
+        if(addressLine1LC.includes('smallholding') || complexNameLC.toLowerCase().includes('smallholding')){
             return "Smallholding address"
         }
 
-        else if(address.addressLine1.includes('farm') || address.complexName.includes('farm') || address.complexName.includes('plaas') || address.addressLine1.includes('plaas') || address.addressLine1.includes('plot') || address.complexName.includes('plot')){
+        else if(addressLine1LC.includes('farm') || complexNameLC.includes('farm') || addressLine1LC.toLowerCase().includes('plaas') || complexNameLC.includes('plaas') || addressLine1LC.includes('plot') || complexNameLC.includes('plot')){
             return "Farm address"
         }
 
-        else if(address.addressLine1.includes('business') || address.addressLine1.includes('pty') || address.addressLine1.includes('ltd') || address.addressLine1.includes('p.o') || address.addressLine1.includes('private bag') || address.addressLine1.includes('company') || address.addressLine1.includes('enterprise')){
+        else if(addressLine1LC.includes('business') || addressLine1LC.includes('pty') || addressLine1LC.includes('ltd') || addressLine1LC.includes('p.o') || addressLine1LC.includes('private bag') || addressLine1LC.includes('company') || addressLine1LC.includes('enterprise')){
             return "Business address"
         }
 
-        else if(address.addressLine1.includes('suite') || address.addressLine1.includes('block') || address.addressLine1.includes('room') || address.addressLine1.includes('rm') || address.addressLine1.includes('floor') || address.addressLine1.includes('flr')){
+        else if(addressLine1LC.includes('suite') || addressLine1LC.includes('block') || addressLine1LC.includes('room') || addressLine1LC.includes('rm') || addressLine1LC.includes('floor') || addressLine1LC.includes('flr')){
             return "Within a building address"
         }
 
