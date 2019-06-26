@@ -17,7 +17,7 @@ export class ClassifyClass{
             return "Business address"
         }
 
-        else if(address.addressLine1.includes('block') || address.addressLine1.includes('room') || address.addressLine1.includes('rm') || address.addressLine1.includes('floor') || address.addressLine1.includes('flr')){
+        else if(address.addressLine1.includes('suite') || address.addressLine1.includes('block') || address.addressLine1.includes('room') || address.addressLine1.includes('rm') || address.addressLine1.includes('floor') || address.addressLine1.includes('flr')){
             return "Within a building address"
         }
 
