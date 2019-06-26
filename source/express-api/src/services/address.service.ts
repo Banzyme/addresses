@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { SimpleStreetAddressModel } from "../models/simple-address.model";
 import { FullStreetAddressModel } from "../models/full-address.model";
 import {ValidateClass} from "../classes/validate.class";
 import {ClassifyClass} from "../classes/classify.class";
