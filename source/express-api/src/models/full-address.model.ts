@@ -1,4 +1,5 @@
 export interface FullStreetAddressModel{
+    addressLine1: string,
     complexNo: string,
     complexName: string,
     streetNo: string,
@@ -15,6 +16,11 @@ export const FullStreetAddressModelSchema = {
     "title": "fullStreetAddress",
     "type": "object",
     "properties": {
+        "addressLine1": {
+            "type": "string",
+            "minimum": 1,
+            "description": ""
+        },
         "complexNo": {
             "type": "string",
             "minimum": 1,
