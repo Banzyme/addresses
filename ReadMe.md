@@ -50,10 +50,11 @@
         * If address can be classified: Send JSON classification result ie. 'Farm address', 'Within a ...' etc.
         * If unclassifiable default to Domestic (Street address)
 
-## **Address JSON Schema**
+## Address JSON Schema
 
-1. <addressLine1><complexNo><complexName><streetNo><streetName><suburb><city><province><zipCode>
-2. All fields not mandatory. Can just fill addressLine1 and see if Google Maps can autocomplete
+1. <addressLine1> <complexNo> <complexName> <streetNo> <streetName> <suburb> <city> <province> <zipCode>
+2. Room C2 2nd Floor, null,  Asterhof House, null ,  South Street, Hatfield,  null,  null  ,    null
+3. All fields not mandatory. Can just fill addressLine1 and see if Google Maps can autocomplete
 
 
 ## Running instructons
