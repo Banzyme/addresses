@@ -1,0 +1,29 @@
+{
+    "$identity": "",
+    "$schemaStandard": "",
+    "title": "address",
+    "type": "object",
+    "properties": {
+        "streetNumber": {
+            "type": "string",
+            "minimum": 1,
+            "description": ""
+        },
+        "streetName": {
+            "type": "string",
+            "minimum": 1,
+            "description": ""
+        },
+        "city": {
+            "type": "string",
+            "minimum": 1,
+            "description": ""
+        },
+        "zipCode":{
+            "type": "string",
+            "minimum": 1,
+            "description": ""
+        }
+
+    }
+}

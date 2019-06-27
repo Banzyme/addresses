@@ -1,13 +1,19 @@
 import { Request, Response } from 'express';
+import {ValidateClass} from '../classes/validate.class';
+import {AddressService} from '../services/address.service'
 
 export class AddressController{
     
-    static verifyAdress(req: Request, res:Response){
-        // Get query params to determine what validation to perform
-        // Use the Validator Class under utils to perform validation logic
-        // Then generate a custom response object and send a JSON response
+    static async verifyAddress(req: Request, res:Response){ 
+        console.log('receiving data ...');
+        let finalResponse= await AddressService.classifyAddress(req.body)
+        .then(response => {
+            return response;
+        })
+        .catch(error =>{
+            console.log(error);
+        });
+        return finalResponse;
 
-        const addresType = req.params.address_type || 'street_simple';
-        res.send(`Your adress is invalid! You provided a query string:  ${addresType}`);
     }
 }
