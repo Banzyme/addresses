@@ -11,7 +11,35 @@
 			"name": "MIT"
 		}
 	},
-	"paths": {},
+	"paths": {
+		"/address": {
+            "post": {
+                "tags": [
+                    "address"
+                ],
+                "summary": "Verify JSON address passed in",
+                "requestBody": {
+                    "description": "Full Address Object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    }
+                }
+            }
+		}
+	},
 	"produces": [
 		"application/json"
 	],

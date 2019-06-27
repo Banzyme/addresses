@@ -1,14 +1,19 @@
 import { Request, Response } from 'express';
 import {ValidateClass} from '../classes/validate.class';
 import {AddressService} from '../services/address.service'
-const  api_helper= require('./helpers/API_helper')
 
 export class AddressController{
     
-    static verifyAddress(req: Request, res:Response){ 
-        res.send(AddressService.classifyAddress(req.body));
+    static async verifyAddress(req: Request, res:Response){ 
+        console.log('receiving data ...');
+        let finalResponse= await AddressService.classifyAddress(req.body)
+        .then(response => {
+            return response;
+        })
+        .catch(error =>{
+            console.log(error);
+        });
+        return finalResponse;
 
-        // const addressType = req.params.address_type || 'street_simple';
-        // res.send(`Your address is invalid! You provided a query string:  ${addressType}`);
     }
 }
