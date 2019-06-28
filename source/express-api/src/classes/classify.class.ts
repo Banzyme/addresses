@@ -6,12 +6,12 @@ export class ClassifyClass{
         const addressLine1LC = address.addressLine1.toLowerCase();
         const complexNameLC = address.complexName.toLowerCase();
 
-        //check for word smallholding in AddressLine1 or complexName
+        //Check for word smallholding in AddressLine1 or complexName
         if(addressLine1LC.includes('smallholding') || complexNameLC.toLowerCase().includes('smallholding')){
             return "Smallholding address"
         }
 
-        else if(addressLine1LC.includes('farm') || complexNameLC.includes('farm') || addressLine1LC.toLowerCase().includes('plaas') || complexNameLC.includes('plaas') || addressLine1LC.includes('plot') || complexNameLC.includes('plot')){
+        else if(addressLine1LC.includes('farm') || complexNameLC.includes('farm') || addressLine1LC.includes('plaas') || complexNameLC.includes('plaas') || addressLine1LC.includes('plot') || complexNameLC.includes('plot')){
             return "Farm address"
         }
 
