@@ -1,5 +1,4 @@
 import * as express from 'express';
-import { Request, Response } from 'express';
 import { AddressController } from '../controllers';
 
 export const addressRoutes = (router: express.Router) => {
