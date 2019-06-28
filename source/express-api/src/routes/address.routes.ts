@@ -1,31 +1,28 @@
+import { Request, Response } from 'express';
 import * as express from 'express';
 import { AddressController } from '../controllers';
+import { apiResponse, apiResponse404, apiResponse500 } from '../utility';
 
-export const addressRoutes = (router: express.Router) => {
-    router.get('/', function (req, res) {
-        res.send(`WELCOME TO THE ADDRESS VALIDATION API!\n
-                Send a postman post request to url: http://localhost:3002/address \n
-                \n
-                Structure of JSON Request: \n
-                address_line1, \n
-                complex_no, \n
-                complex_name, \n
-                street_no, \n
-                street_name, \n
-                suburb, \n
-                city, \n
-                province, \n
-                zip_code, \n
-                \n
-                Request Examples are in data folder.`)
-    })
+export const addressRoutes = async (router: express.Router) => {
+    router.route('/address')
+        .post(
+            async function (req: Request, res:Response) {
+                await AddressController.verifyAddress(req,res)
+                .then(response => {
+                    console.log('SH: ', response);
+                    // res.send(response);
 
-    router.post('/address', function (req, res) {
-        AddressController.verifyAddress(req,res)
-        .then(response => {
-            console.log(response);
-            res.send(response);
-        })
-        .catch(error => {console.log(error);})
-    })
+                    res.send(apiResponse({
+                        status: 100,
+                        message: response
+                    }))
+                })
+                .catch(error => {
+                    res.send(apiResponse({
+                        status: 500,
+                        message: error
+                    }))
+                })
+            }
+        );
 }
