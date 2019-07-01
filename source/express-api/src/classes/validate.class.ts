@@ -1,4 +1,4 @@
-import { FullStreetAddressModel } from "../models/full-address.model";
+import { FullStreetAddressModel } from '../models/full-address.model';
 
 const  api_helper= require('../adapters/google-maps.repository')
 export class ValidateClass{
@@ -9,12 +9,13 @@ export class ValidateClass{
         let addressExist = false;
         const formattedAddress : String = `${address.addressLine1}+${address.complexNo}+${address.complexName}+${address.streetNo}+${address.streetName}+${address.suburb}+${address.city}+${address.province}+${address.zipCode}`
         
-        const APIKey : String= 'AIzaSyBSFC36Y5iX_G9GeQmGL3jc723blrWJqgU'
+        const APIKey : String= ''
         
        
         await api_helper.lookupAddress(`https://maps.googleapis.com/maps/api/geocode/json?address=${formattedAddress}&key=${APIKey}`)
         .then(response => {
             if(response.status==='OK'){addressExist=true;}
+            console.log(response);
             return addressExist;
         })
         .catch(error => {
