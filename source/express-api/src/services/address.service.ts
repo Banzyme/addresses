@@ -17,7 +17,7 @@ export class AddressService{
             return errors;
         }
         //if user chooses to not do check to see if address exists
-        if (address.doAddressExistCheck.toLocaleLowerCase()==='no' || address.doAddressExistCheck.toLocaleLowerCase()===''){
+        if (address.doAddressExistCheck.toLowerCase()==='no' || address.doAddressExistCheck.toLowerCase()===''){
             let addressType = ClassifyClass.classify(address);
             return addressType;
         }

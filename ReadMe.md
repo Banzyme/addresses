@@ -55,9 +55,10 @@
 
 ## Address JSON Schema
 
-1. * Full: <address_line1> ,<complex_no>, <complex_name> ,<street_no>, <street_name>, <suburb> ,<city>, <province>, <zip_code>
-2. Room C2 2nd Floor, "",  Asterhof House, "" ,  South Street, Hatfield,  "",  ""  ,    ""
-3. All fields not mandatory. Can just fill addressLine1 and see if Google Maps can autocomplete
+1. * Full: <doAddressExistCheck> , <address_line1> ,<complex_no>, <complex_name> ,<street_no>, <street_name>, <suburb> ,<city>, <province>, <zip_code>
+2. The <doAddressExistCheck> field can be filled in with "Yes" or "No" and defaults "" to not do the check.
+3. Example: "Yes", "Room C2 2nd Floor" , "",  "Asterhof House" , "" ,  "South Street" , "Hatfield",  "",  ""  ,  "0002"
+4. All fields not mandatory. Can just fill addressLine1 and see if Google Maps can autocomplete
 
 
 ## Running instructons
