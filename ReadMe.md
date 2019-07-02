@@ -1,11 +1,16 @@
 # Lucid Address Verification API
 
 ##  Validation Process (Done by AddressService)
-1. **Validate if address exists:**
+1. **Verify if fields correctly filled in request:**
+    * Check no missing required fields eg. streetNo
+    * Check no extra fields
+    * Check no null fields
+    * Check zipCode is 4 digits
+2. **Validate if address exists:**
     * Do Google Maps address lookup
         * Google Maps Geolocation api searches, if found move to 2. 
         * If not, send response that address does not exist
-2. **Classify address if exists**
+3. **Classify address if exists**
     * Domestic (street address)- no complex no/complexName, starts with streetNo/StreetName 
         * eg. Addr1:    Dr Lategan Road, Groenkloof
         *     Addr2:    1736 Pretorius Street, Arcadia, 0083
@@ -19,7 +24,7 @@
         *     Addr3:    Private Bag X097
         *               Pretoria
         *               0001
-    * Within a building (Building address) -  Has word 'block', 'room','rm', 'floor','flr','suite' or starts with Complex Name
+    * Within a building (Building address) -  Has word 'flat','block', 'room','rm', 'floor','flr','suite' or starts with Complex Name
         * eg. Addr1:    Block 816 Diamond House, 
         *               Eloff Street, 
         *               Braamfontein
@@ -50,9 +55,10 @@
 
 ## Address JSON Schema
 
-1. * Full: <address_line1> ,<complex_no>, <complex_name> ,<street_no>, <street_name>, <suburb> ,<city>, <province>, <zip_code>
-2. Room C2 2nd Floor, null,  Asterhof House, null ,  South Street, Hatfield,  null,  null  ,    null
-3. All fields not mandatory. Can just fill addressLine1 and see if Google Maps can autocomplete
+1. * Full: <doAddressExistCheck> , <address_line1> ,<complex_no>, <complex_name> ,<street_no>, <street_name>, <suburb> ,<city>, <province>, <zip_code>
+2. The <doAddressExistCheck> field can be filled in with "Yes" or "No" and defaults "" to not do the check.
+3. Example: "Yes", "Room C2 2nd Floor" , "",  "Asterhof House" , "" ,  "South Street" , "Hatfield",  "",  ""  ,  "0002"
+4. All fields not mandatory. Can just fill addressLine1 and see if Google Maps can autocomplete
 
 
 ## Running instructons
