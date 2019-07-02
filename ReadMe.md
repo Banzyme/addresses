@@ -1,11 +1,16 @@
 # Lucid Address Verification API
 
 ##  Validation Process (Done by AddressService)
-1. **Validate if address exists:**
+1. **Verify if fields correctly filled in request:**
+    * Check no missing required fields eg. streetNo
+    * Check no extra fields
+    * Check no null fields
+    * Check zipCode is 4 digits
+2. **Validate if address exists:**
     * Do Google Maps address lookup
         * Google Maps Geolocation api searches, if found move to 2. 
         * If not, send response that address does not exist
-2. **Classify address if exists**
+3. **Classify address if exists**
     * Domestic (street address)- no complex no/complexName, starts with streetNo/StreetName 
         * eg. Addr1:    Dr Lategan Road, Groenkloof
         *     Addr2:    1736 Pretorius Street, Arcadia, 0083
