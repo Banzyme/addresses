@@ -19,7 +19,7 @@
         *     Addr3:    Private Bag X097
         *               Pretoria
         *               0001
-    * Within a building (Building address) -  Has word 'block', 'room','rm', 'floor','flr','suite' or starts with Complex Name
+    * Within a building (Building address) -  Has word 'flat','block', 'room','rm', 'floor','flr','suite' or starts with Complex Name
         * eg. Addr1:    Block 816 Diamond House, 
         *               Eloff Street, 
         *               Braamfontein
@@ -51,7 +51,7 @@
 ## Address JSON Schema
 
 1. * Full: <address_line1> ,<complex_no>, <complex_name> ,<street_no>, <street_name>, <suburb> ,<city>, <province>, <zip_code>
-2. Room C2 2nd Floor, null,  Asterhof House, null ,  South Street, Hatfield,  null,  null  ,    null
+2. Room C2 2nd Floor, "",  Asterhof House, "" ,  South Street, Hatfield,  "",  ""  ,    ""
 3. All fields not mandatory. Can just fill addressLine1 and see if Google Maps can autocomplete
 
 
