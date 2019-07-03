@@ -15,7 +15,6 @@ export class ValidateClass{
         await api_helper.lookupAddress(`https://maps.googleapis.com/maps/api/geocode/json?address=${formattedAddress}&key=${APIKey}`)
         .then(response => {
             if(response.status==='OK'){addressExist=true;}
-            console.log(response);
             return addressExist;
         })
         .catch(error => {

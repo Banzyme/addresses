@@ -27,5 +27,4 @@ export class ClassifyClass{
             return 'Domestic address'
         }
     }
-
 }
