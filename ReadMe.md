@@ -65,14 +65,13 @@
 
 * Navigate to ./source/express-api and run **npm install**
 * To run locally, use **npm run start**
-
+* To run unit tests navigate to above classpath and run **npm run test**
 
 ## Features
 
 * Unambiguous address verifcation service
 * Easy to customize
 * Fast and secure response
-
 
 ## Configurations
 
