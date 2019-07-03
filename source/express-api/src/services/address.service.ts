@@ -7,7 +7,21 @@ import {FormatCheckerClass} from '../classes/formatchecker.class'
 ** FACADE PATTERN: Use AddressService to hide complexity
 */
 export class AddressService{
-    static async classifyAddress(address : FullStreetAddressModel){ 
+    private static instance: AddressService;
+    private AddressService(){
+    }
+
+    /*
+    ** SINGLETON PATTERN: Only one instance of AddressService used
+    */
+    static getInstance(): AddressService {
+        if (!AddressService.instance) {
+            AddressService.instance = new AddressService();
+        }
+        return AddressService.instance;
+    }
+
+    async classifyAddress(address : FullStreetAddressModel){ 
         /*
         ** CHAIN OF RESPONSIBILTY PATTERN: Check format, Validate address exists, thereafter Classify address request
         */
