@@ -22,13 +22,10 @@ export class AddressService{
     }
 
     async classifyAddress(address : FullStreetAddressModel){ 
-        /*
-        ** CHAIN OF RESPONSIBILTY PATTERN: Check format, Validate address exists, thereafter Classify address request
-        */
         let addressType;
         const errors = FormatCheckerClass.checkFormat(address);
-        if (errors){
-            return errors;
+        if (errors > 0){
+            return "You have errors in the format of your request. Refer to console log for more details.";
         }
         //if user chooses to not do check to see if address exists
         if (address.doAddressExistCheck.toLowerCase()==='no' || address.doAddressExistCheck.toLowerCase()===''){
