@@ -17,6 +17,7 @@ var options = {
 
 app.set("PORT", process.env.PORT || 3002);
 
+
 /* 
 ** ROUTER
 */
@@ -30,7 +31,7 @@ let appRouter = new AppRouter.Builder()
 ** ROUTING 
 */
 
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 app.use('/api-docs/v1', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/v1', appRouter.getRouter());
 app.use((req: express.Request, res: express.Response, next: express.NextFunction) => 

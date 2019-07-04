@@ -13,7 +13,7 @@ export class ValidateClass extends AbstractValidator{
         let addressExist = false;
         const formattedAddress : String = `${address.addressLine1}+${address.complexNo}+${address.complexName}+${address.streetNo}+${address.streetName}+${address.suburb}+${address.city}+${address.province}+${address.zipCode}`
         
-        const APIKey : String= ''
+        const APIKey : String= 'AIzaSyBJgs2BCnnLrxtW-7pIyNhPROJc9DUeOYk'
         
        
         await api_helper.lookupAddress(`https://maps.googleapis.com/maps/api/geocode/json?address=${formattedAddress}&key=${APIKey}`)
