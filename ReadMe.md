@@ -1,4 +1,22 @@
-# Lucid Address Verification API
+# Address Validation API
+
+* This is a **Configurable** **RESTFUL-API** that validates different types of addresses using the **Google Maps** **Geolocation** API.
+
+
+# How it works
+
+* The API is built in Express-ts and it consists of the following common design patterns:
+	* **Creational patterns**
+		* Builder pattern
+		* Singleton pattern
+	* **Behavioral patterns**
+		* Chain of responsibility patter
+		* Adapter pattern
+		* Template pattern
+* The use of these pattern is illustrated in the figure below:
+<hr/>
+![no alt](https://drive.google.com/file/d/1g34lqRDqdWyIAVBya_PTJG_cwf9RcawG/view?usp=sharing)
+<hr/>
 
 ##  Validation Process (Done by AddressService)
 1. **Verify if fields correctly filled in request:**
