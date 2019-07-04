@@ -1,7 +1,7 @@
 import { FullStreetAddressModel } from '../models/full-address.model';
 import {ValidateClass} from '../classes/validate.class';
 import {ClassifyClass} from '../classes/classify.class';
-import {AddressUtility,ApiResponse, Formatter} from '../classes/address-utility.class';
+import {AddressUtility, ApiResponse} from '../classes/address-utility.class';
 
 /*
 ** FACADE PATTERN: Use AddressService to hide complexity
@@ -36,7 +36,7 @@ export class AddressService{
             return ApiResponse.apiResponse({
                 status: 200,
                 message: 'Successful',
-                address: Formatter.addressObj(address),
+                address: AddressUtility.format(address),
                 addressType
             })
         }

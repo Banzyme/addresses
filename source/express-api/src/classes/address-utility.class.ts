@@ -9,6 +9,20 @@ export class AddressUtility {
     public checkFormat(address: FullStreetAddressModel): number {
         return FormatCheckerClass.checkFormat(address);
     }
+
+    static format = (address): string => {
+      let out_str = '';
+      delete address.doAddressExistCheck;
+      Object.keys(address).forEach(function(key) {
+        if(address[key]){
+          if(out_str){
+            out_str = out_str.concat(', ')
+          }
+          out_str = out_str.concat(address[key]);
+        }
+      })
+      return out_str;
+    }
 }
 
 export interface ResponseDataType {
@@ -44,20 +58,4 @@ export class ApiResponse {
         address: '',
       });
     };
-}
-  
-export class Formatter{
-    static addressObj = (address): string => {
-      let out_str = '';
-      delete address.doAddressExistCheck;
-      Object.keys(address).forEach(function(key) {
-        if(address[key]){
-          if(out_str){
-            out_str = out_str.concat(', ')
-          }
-          out_str = out_str.concat(address[key]);
-        }
-      })
-      return out_str;
-    }
 }

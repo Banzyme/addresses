@@ -2,7 +2,7 @@ import { FullStreetAddressModel } from '../models/full-address.model';
 import { AbstractValidator } from './abstract-validator.class';
 import { GoogleMapsAPIAdapter } from '../adapters/google-maps.adapter';
 import { MapsAPIAdapter } from '../adapters/api-adapter.adapter';
-import {ResponseDataType,ApiResponse, Formatter} from '../classes/address-utility.class';
+import {ResponseDataType,ApiResponse, AddressUtility} from '../classes/address-utility.class';
 
 export class ValidateClass extends AbstractValidator{
     private mapsAPI: MapsAPIAdapter;
@@ -38,16 +38,16 @@ export class ValidateClass extends AbstractValidator{
                 case 'INVALID_REQUEST':
                     addressData.status = 200;
                     addressData.message = 'Non-existent address';
-                    addressData.address = Formatter.addressObj(address);
+                    addressData.address = AddressUtility.format(address);
                     break;
                 case 'OVER_DAILY_LIMIT':
                 case 'OVER_QUERY_LIMIT':
                 case 'REQUEST_DENIED':
                 case 'UNKNOWN_ERROR':
-                    addressData.address = Formatter.addressObj(address);
+                    addressData.address = AddressUtility.format(address);
                     break;
                 default:
-                    addressData.address = Formatter.addressObj(address);
+                    addressData.address = AddressUtility.format(address);
                     break;
             }
 
