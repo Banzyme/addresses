@@ -1,8 +1,11 @@
 import { FullStreetAddressModel } from '../models/full-address.model';
 import { AbstractValidator } from './abstract-validator.class';
+import { GoogleMapsAPIAdapter } from '../adapters/google-maps.adapter';
+import { MapsAPIAdapter } from '../adapters/api-adapter.adapter';
 
-const  api_helper= require('../adapters/google-maps.repository')
 export class ValidateClass extends AbstractValidator{
+    private mapsAPI: MapsAPIAdapter;
+
     public classify(address: FullStreetAddressModel) {
         throw new Error("Validate class does not classify");
     }
@@ -11,12 +14,12 @@ export class ValidateClass extends AbstractValidator{
     */
     async validateAddress (address: FullStreetAddressModel ){
         let addressExist = false;
-        const formattedAddress : String = `${address.addressLine1}+${address.complexNo}+${address.complexName}+${address.streetNo}+${address.streetName}+${address.suburb}+${address.city}+${address.province}+${address.zipCode}`
+        const formattedAddress: string = `${address.addressLine1}+${address.complexNo}+${address.complexName}+${address.streetNo}+${address.streetName}+${address.suburb}+${address.city}+${address.province}+${address.zipCode}`
         
-        const APIKey : String= ''
+        const APIKey: string = ''; // TODO
         
-       
-        await api_helper.lookupAddress(`https://maps.googleapis.com/maps/api/geocode/json?address=${formattedAddress}&key=${APIKey}`)
+        this.mapsAPI = new GoogleMapsAPIAdapter(APIKey);
+        await this.mapsAPI.lookupAddress(formattedAddress)
         .then(response => {
             if(response.status==='OK'){addressExist=true;}
             return addressExist;
