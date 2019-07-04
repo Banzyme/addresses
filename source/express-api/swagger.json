@@ -1,48 +1,127 @@
 {
-	"basePath": "/",
-	"consumes": [
-		"application/json"
-	],
-	"definitions": {},
-	"info": {
-		"title": "address-validator",
-		"version": "1.0.0",
-		"license": {
-			"name": "MIT"
-		}
-	},
-	"paths": {
-		"/address": {
+    "basePath": "/",
+    "consumes": [
+        "application/json"
+    ],
+    "definitions": {
+        "address": {
+            "type": "object",
+            "required":[
+                "Zipcode"
+            ],
+            "properties": {
+                "doAddressExistCheck": {
+                    "type": "string",
+                    "description": ""
+                },
+                "addressLine1": {
+                    "type": "string",
+                    "description": ""
+                },
+                "complexNo": {
+                    "type": "string",
+                    "description": ""
+                },
+                "complexName": {
+                    "type": "string",
+                    "description": ""
+                },
+                "streetNo": {
+                    "type": "string",
+                    "description": ""
+                },
+                "streetName": {
+                    "type": "string",
+                    "description": ""
+                },
+                "suburb": {
+                    "type": "string",
+                    "description": ""
+                },
+                "city": {
+                    "type": "string",
+                    "description": ""
+                },
+                "province": {
+                    "type": "string",
+                    "description": ""
+                },
+                "zipCode": {
+                    "type": "string",
+                    "description": ""
+                }
+            }
+        },
+        "responseObj": {
+            "type": "object",
+            "properties": {
+                "Exists": {
+                    "type": "string",
+                    "description": ""
+                },
+                "Classification": {
+                    "type": "string",
+                    "description": ""
+                },
+                "CorrectAddress": {
+                    "type": "string",
+                    "description": ""
+                }
+            }
+        }
+    },
+    "info": {
+        "title": "address-validator",
+        "version": "1.0.0",
+        "license": {
+            "name": "MIT"
+        }
+    },
+    "paths": {
+        "/address": {
             "post": {
                 "tags": [
                     "address"
                 ],
-                "summary": "Verify JSON address passed in",
+                "summary": "Verify Addresses passed in, in JSON format",
                 "requestBody": {
                     "description": "Full Address Object",
                     "required": true,
                     "content": {
-                        "application/json": {
-                        }
+                        "application/json": {}
                     }
                 },
                 "produces": [
                     "application/json"
                 ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Address thats needs to be validated",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/address"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
-                        "description": "OK"
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responseObj"
+                        }
                     },
                     "400": {
                         "description": "Failed. Bad post data."
                     }
                 }
             }
-		}
-	},
-	"produces": [
-		"application/json"
-	],
-	"swagger": "2.0",
-	"securityDefinitions": {}
+        }
+    },
+    "produces": [
+        "application/json"
+    ],
+    "swagger": "2.0",
+    "securityDefinitions": {}
 }
