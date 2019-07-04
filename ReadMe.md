@@ -3,7 +3,13 @@
 * This is a **Configurable** **RESTFUL-API** that validates different types of addresses using the **Google Maps** **Geolocation** API.
 
 
-# How it works
+## Running instructons
+
+* Navigate to ./source/express-api and run **npm install**
+* To run locally, use **npm run start**
+* To run unit tests navigate to above classpath and run **npm run test**
+
+## How it works
 
 * The API is built in Express-ts and it consists of the following common design patterns:
 	* **Creational patterns**
@@ -79,50 +85,32 @@
 4. All fields not mandatory. Can just fill addressLine1 and see if Google Maps can autocomplete
 
 
-## Running instructons
-
-* Navigate to ./source/express-api and run **npm install**
-* To run locally, use **npm run start**
-* To run unit tests navigate to above classpath and run **npm run test**
-
-## Features
-
-* Unambiguous address verifcation service
-* Easy to customize
-* Fast and secure response
-
 ## Configurations
 
 1. **Type**(Address type):
 
 * 1.1. Street
   * 1.1.1. Short: <street_no> <street_name>, <area_name>  e.g. 1736 Pretorius Street, Arcadia,
+  
   * 1.1.2. Full: <street_no> <street_name>, <area_name>, <city>, <province>   e.g. 70 Park Street West, Hatfield, Pretoria, Gauteng 
 
 2. **Scope**(Verification scope)
 
 * 2.1. Basic
+
 * 2.2. Full
 
 3. **Country**
 
 3.1. RSA
+
 3.2. USA
+
 3.3. GBT
 
 4. **Response**
 
 4.1. Normal
+
 4.2. Verbose
 
-<hr>
-<hr>
-
-## Project structure
-
-* Root
-  * Models
-  * Controllers
-  * Routes
-  * SharedModule
-  * index.js
