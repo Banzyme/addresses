@@ -21,7 +21,7 @@
 		* Template pattern
 * The use of these pattern is illustrated in the figure below:
 <hr/>
-![no alt](https://drive.google.com/file/d/1g34lqRDqdWyIAVBya_PTJG_cwf9RcawG/view?usp=sharing)
+![no alt](https://github.com/Banzyme/addresses/blob/master/Documentation/addresses%20UML.JPG?raw=true)
 <hr/>
 
 ##  Validation Process (Done by AddressService)
