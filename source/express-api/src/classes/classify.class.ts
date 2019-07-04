@@ -1,8 +1,12 @@
 import { FullStreetAddressModel } from '../models/full-address.model';
+import { AbstractValidator } from './abstract-validator.class';
 
-export class ClassifyClass{
-    static classify (address: FullStreetAddressModel ) {
-        
+export class ClassifyClass extends AbstractValidator{
+    validateAddress(address: FullStreetAddressModel) {
+        throw new Error("Classify class does not validate");
+    }
+    
+    public classify (address: FullStreetAddressModel ) {   
         const addressLine1LC = address.addressLine1.toLowerCase();
         const complexNameLC = address.complexName.toLowerCase();
 
