@@ -23,7 +23,7 @@ export class ClassifyClass extends AbstractValidator{
             return 'Business address'
         }
 
-        else if(addressLine1LC.includes('flat') || addressLine1LC.includes('suite') || addressLine1LC.includes('block') || addressLine1LC.includes('room') || addressLine1LC.includes('rm') || addressLine1LC.includes('floor') || addressLine1LC.includes('flr')){
+        else if(addressLine1LC.includes('flat') || addressLine1LC.includes('apartment') || addressLine1LC.includes('suite') || addressLine1LC.includes('block') || addressLine1LC.includes('room') || addressLine1LC.includes('rm') || addressLine1LC.includes('floor') || addressLine1LC.includes('flr')){
             return 'Within a building address'
         }
 
