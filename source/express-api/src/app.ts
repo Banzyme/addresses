@@ -3,7 +3,7 @@ import * as swaggerUi from 'swagger-ui-express';
 import * as swaggerDocument from './../swagger.json';
 import * as bodyParser from 'body-parser';
 import { AppRouter } from './routes';
-import { apiResponse404, apiResponse500 } from './utility';
+import { ApiResponse } from './utility';
 
 /* 
 ** SERVER
@@ -35,10 +35,10 @@ app.use(bodyParser.json());
 app.use('/api-docs/v1', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/v1', appRouter.getRouter());
 app.use((req: express.Request, res: express.Response, next: express.NextFunction) => 
-  res.status(404).send(apiResponse404())
+  res.status(404).send(ApiResponse.apiResponse404())
 )
 app.use((req: express.Request, res: express.Response, next: express.NextFunction) => 
-  res.status(500).send(apiResponse500())
+  res.status(500).send(ApiResponse.apiResponse500())
 )
 
 export default app;

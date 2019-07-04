@@ -1,7 +1,8 @@
 import { FullStreetAddressModel } from '../models/full-address.model';
 import {ValidateClass} from '../classes/validate.class';
 import {ClassifyClass} from '../classes/classify.class';
-import {FormatCheckerClass} from '../classes/formatchecker.class'
+import {FormatCheckerClass} from '../classes/formatchecker.class';
+import { ApiResponse, Formatter }  from '../utility';
 
 /*
 ** FACADE PATTERN: Use AddressService to hide complexity
@@ -22,33 +23,40 @@ export class AddressService{
     }
 
     async classifyAddress(address : FullStreetAddressModel){ 
-        let addressType;
         let validateClass = new ValidateClass();
         let classifyClass = new ClassifyClass();
         const errors = FormatCheckerClass.checkFormat(address);
         if (errors > 0){
-            return "You have errors in the format of your request. Refer to console log for more details.";
+            return ApiResponse.apiResponse500("You have errors in the format of your request. Refer to console log for more details.");
         }
-        //if user chooses to not do check to see if address exists
-        if (address.doAddressExistCheck.toLowerCase()==='no' || address.doAddressExistCheck.toLowerCase()===''){
+        if (address.doAddressExistCheck.toLowerCase() ==='no' || address.doAddressExistCheck.toLowerCase()===''){
+            
             let addressType = classifyClass.classify(address);
-            return addressType;
+            return ApiResponse.apiResponse({
+                status: 200,
+                message: 'Successful',
+                address: Formatter.addressObj(address),
+                addressType
+            })
         }
         else{
-            //If doesnt exist then return error
             return await validateClass.validateAddress(address)
             .then(response => {
-                if(  response=== false ){
+                let addressType;
+                if( response.status !== 200 ){
                     addressType = 'Address does not exist!';
-                    return addressType;
+                } else{
+                    addressType = classifyClass.classify(address);
                 }
-                //Address exists then classify address
-                else{
-                    let addressType = classifyClass.classify(address);
-                    return addressType;
-                }
+
+                return (ApiResponse.apiResponse({
+                    ...response,
+                    addressType
+                }));
             })
-            .catch(error => {console.log(error);})
+            .catch(error => {
+               return ApiResponse.apiResponse500(error) 
+            })
         }
         
     }
