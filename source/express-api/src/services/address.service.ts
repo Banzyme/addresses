@@ -23,18 +23,20 @@ export class AddressService{
 
     async classifyAddress(address : FullStreetAddressModel){ 
         let addressType;
+        let validateClass = new ValidateClass();
+        let classifyClass = new ClassifyClass();
         const errors = FormatCheckerClass.checkFormat(address);
         if (errors > 0){
             return "You have errors in the format of your request. Refer to console log for more details.";
         }
         //if user chooses to not do check to see if address exists
         if (address.doAddressExistCheck.toLowerCase()==='no' || address.doAddressExistCheck.toLowerCase()===''){
-            let addressType = ClassifyClass.classify(address);
+            let addressType = classifyClass.classify(address);
             return addressType;
         }
         else{
             //If doesnt exist then return error
-            return await ValidateClass.validateAddress(address)
+            return await validateClass.validateAddress(address)
             .then(response => {
                 if(  response=== false ){
                     addressType = 'Address does not exist!';
@@ -42,7 +44,7 @@ export class AddressService{
                 }
                 //Address exists then classify address
                 else{
-                    let addressType = ClassifyClass.classify(address);
+                    let addressType = classifyClass.classify(address);
                     return addressType;
                 }
             })
