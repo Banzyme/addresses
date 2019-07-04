@@ -22,7 +22,6 @@ export class AddressService{
     }
 
     async classifyAddress(address : FullStreetAddressModel){ 
-        
         let validateClass = new ValidateClass();
         let classifyClass = new ClassifyClass();
         let addressUtility= new AddressUtility();

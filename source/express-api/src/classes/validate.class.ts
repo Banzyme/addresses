@@ -2,7 +2,7 @@ import { FullStreetAddressModel } from '../models/full-address.model';
 import { AbstractValidator } from './abstract-validator.class';
 import { GoogleMapsAPIAdapter } from '../adapters/google-maps.adapter';
 import { MapsAPIAdapter } from '../adapters/api-adapter.adapter';
-import {ResponseDataType,ApiResponse, AddressUtility} from '../classes/address-utility.class';
+import { ResponseDataType, ApiResponse, AddressUtility} from '../classes/address-utility.class';
 
 export class ValidateClass extends AbstractValidator{
     private mapsAPI: MapsAPIAdapter;
@@ -11,9 +11,7 @@ export class ValidateClass extends AbstractValidator{
         throw new Error("Validate class does not classify");
     }
     async validateAddress (address: FullStreetAddressModel ){
-        let addressExist = false;
         const formattedAddress: string = `${address.addressLine1}+${address.complexNo}+${address.complexName}+${address.streetNo}+${address.streetName}+${address.suburb}+${address.city}+${address.province}+${address.zipCode}`
-        
         const APIKey: string = 'AIzaSyCLtHr-VRFXbfiAjW_gEq64C0AyMjN1B6s'; // TODO: Before running API add Google Maps API Key
         
         try {

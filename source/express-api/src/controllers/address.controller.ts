@@ -12,6 +12,5 @@ export class AddressController{
         } catch (error) {
             return ApiResponse.apiResponse500(error);
         }
-
     }
 }

@@ -3,8 +3,9 @@ import * as swaggerUi from 'swagger-ui-express';
 import * as swaggerDocument from './../swagger.json';
 import { AppRoutesConfig } from './routes';
 import {ApiResponse} from './classes/address-utility.class';
+import * as bodyParser from 'body-parser';
 
-const app = express(), bodyParser = require('body-parser');
+const app = express();
 
 var options = {
     explorer: true

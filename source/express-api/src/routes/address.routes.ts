@@ -1,7 +1,7 @@
 import * as express from 'express';
 import { AddressController } from '../controllers';
 import { Request, Response } from 'express';
-import {ApiResponse} from '../classes/address-utility.class';
+import { ApiResponse } from '../classes/address-utility.class';
 
 export const addressRoutes = (router: express.Router) => {
     router.get('/', function (req, res) {
