@@ -7,7 +7,7 @@ export class FormatCheckerClass{
     /*
     ** CHAIN OF RESPONSIBILTY PATTERN: Check missing fields, extra fields, null fields of address request
     */
-    static checkFormat (address: FullStreetAddressModel ) : number{
+    static checkFormat (address: FullStreetAddressModel ): number{
         let regex =new RegExp( /\d{4}/); //Check 4 consecutive numbers
         let errors=0;
 
