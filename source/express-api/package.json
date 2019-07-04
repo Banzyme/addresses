@@ -1,6 +1,6 @@
 {
-  "name": "address-validator",
-  "version": "1.0.0",
+  "name": "ddress-validator",
+  "version": "1.1.0",
   "description": "",
   "main": "index.ts",
   "scripts": {
@@ -15,7 +15,7 @@
     "watch-ts": "tsc -w",
     "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,green.bold\"  \"npm run watch-ts\" \"npm run watch-node\""
   },
-  "author": "",
+  "author": "BBD Level Up Grads",
   "license": "MIT",
   "devDependencies": {
     "@types/body-parser": "^1.17.0",
