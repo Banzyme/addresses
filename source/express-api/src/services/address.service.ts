@@ -1,7 +1,8 @@
 import { FullStreetAddressModel } from '../models/full-address.model';
 import {ValidateClass} from '../classes/validate.class';
 import {ClassifyClass} from '../classes/classify.class';
-import {FormatCheckerClass} from '../classes/formatchecker.class'
+import {FormatCheckerClass} from '../classes/formatchecker.class';
+import {AddressUtility} from '../classes/address-utility.class';
 
 /*
 ** FACADE PATTERN: Use AddressService to hide complexity
@@ -25,7 +26,8 @@ export class AddressService{
         let addressType;
         let validateClass = new ValidateClass();
         let classifyClass = new ClassifyClass();
-        const errors = FormatCheckerClass.checkFormat(address);
+        let addressUtility = new AddressUtility();
+        const errors = addressUtility.checkFormat(address);
         if (errors > 0){
             return "You have errors in the format of your request. Refer to console log for more details.";
         }
