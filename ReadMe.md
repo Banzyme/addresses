@@ -108,3 +108,9 @@
   * Routes
   * SharedModule
   * index.js
+
+  5. **Activity Diagram**
+  ![no alt](https://github.com/Banzyme/addresses/blob/master/Documentation/addresses%20UML.JPG?raw=true)
+  source/express-api/images/Address Api Activity Diagram  (2).png
+ghasdgaghsdgkhsajg
+  
