@@ -10,7 +10,7 @@ export class AddressController{
             const response = await AddressService.getInstance().classifyAddress(req.body);
             return response;
         } catch (error) {
-            return ApiResponse.apiResponse500(error);
+            return ApiResponse.apiResponse400(error);
         }
     }
 }

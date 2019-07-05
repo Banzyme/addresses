@@ -51,7 +51,7 @@ export class ValidateClass extends AbstractValidator{
 
             return ApiResponse.apiResponse({...addressData});
         } catch (error) {
-            return ApiResponse.apiResponse500(error); 
+            return ApiResponse.apiResponse400(error); 
         }
     }
 }

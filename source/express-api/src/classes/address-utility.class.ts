@@ -51,10 +51,10 @@ export class ApiResponse {
       });
     };
     
-    static apiResponse500 = (error?: string): ResponseDataType => {
+    static apiResponse400 = (error?: string): ResponseDataType => {
       return ({
-        status: 500, 
-        message: `Server Error${error ? ` : ${error}`: ''}.`,
+        status: 400, 
+        message: `Client Error${error ? ` : ${error}`: ''}.`,
         address: '',
       });
     };

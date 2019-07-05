@@ -27,7 +27,7 @@ export class AddressService{
         let addressUtility= new AddressUtility();
         const errors = addressUtility.checkFormat(address);
         if (errors > 0){
-            return ApiResponse.apiResponse500("You have errors in the format of your request. Refer to console log for more details.");
+            return ApiResponse.apiResponse400("You have errors in the format of your request. Refer to console log for more details.");
         }
         if (address.doAddressExistCheck.toLowerCase() ==='no' || address.doAddressExistCheck.toLowerCase()===''){
             
@@ -55,7 +55,7 @@ export class AddressService{
                 }));
             })
             .catch(error => {
-               return ApiResponse.apiResponse500(error) 
+               return ApiResponse.apiResponse400(error) 
             })
         }
     }
