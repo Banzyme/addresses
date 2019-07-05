@@ -109,8 +109,10 @@
   * SharedModule
   * index.js
 
-  
-  5. **Activity Diagram**
+<hr>
+<hr>
+
+5. **Activity Diagram**
   
   ![no alt](https://github.com/Banzyme/addresses/blob/62990ef4022c514c0daacd05623cba809376f5c9/source/express-api/images/Address%20Api%20Activity%20Diagram%20%20(1).png?raw=true)
   
