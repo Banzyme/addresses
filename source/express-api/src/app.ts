@@ -26,7 +26,7 @@ app.use((req: express.Request, res: express.Response, next: express.NextFunction
   res.status(404).send(ApiResponse.apiResponse404())
 )
 app.use((req: express.Request, res: express.Response, next: express.NextFunction) => 
-  res.status(500).send(ApiResponse.apiResponse500())
+  res.status(400).send(ApiResponse.apiResponse400())
 )
 
 export default app;

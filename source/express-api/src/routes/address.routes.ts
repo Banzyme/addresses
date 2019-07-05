@@ -9,6 +9,7 @@ export const addressRoutes = (router: express.Router) => {
                 Send a postman post request to url: http://localhost:3002/api/v1/address \n
                 \n
                 Structure of JSON Request: \n
+                doAddressExistCheck, \n
                 address_line1, \n
                 complex_no, \n
                 complex_name, \n
@@ -30,7 +31,7 @@ export const addressRoutes = (router: express.Router) => {
                     res.send(response)
                 })
                 .catch(error => {
-                    res.send(ApiResponse.apiResponse500(error))
+                    res.send(ApiResponse.apiResponse400(error))
                 })
             }
         );

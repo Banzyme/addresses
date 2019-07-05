@@ -57,7 +57,7 @@ describe('Address Service', function() {
         it('Should return string error if null field/s provided', function() {
             let addressService  = new AddressService();
             return addressService.classifyAddress(reqNullField).then(function(data){
-                expect(data.message).to.equal('Server Error : You have errors in the format of your request. Refer to console log for more details..');
+                expect(data.message).to.equal('Client Error : You have errors in the format of your request. Refer to console log for more details..');
             });// no catch, it'll figure it out since the promise is rejected
         });
 
