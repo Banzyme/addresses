@@ -55,20 +55,24 @@ let res = {
 describe('Address Service', function() {
     describe('classifyAddress(address) function', function() {
         it('Should return string error if null field/s provided', function() {
-            return AddressService.classifyAddress(reqNullField).then(function(data){
-                expect(data).to.equal(`Your request has the following format error/s:\n\n         addressLine1 |  field/s are null!\n        => Fill "" in fields if meant to be blank.\n        ------------------------------------------------------------------------------------------------\n`);
+            let addressService  = new AddressService();
+            return addressService.classifyAddress(reqNullField).then(function(data){
+                expect(data.message).to.equal('Server Error : You have errors in the format of your request. Refer to console log for more details..');
             });// no catch, it'll figure it out since the promise is rejected
         });
 
         it('Should return \'Address does not exist error\' if unknown address passed in', function() {
-            return AddressService.classifyAddress(reqAddrNotExist).then(function(data){
-                expect(data).to.equal('Address does not exist!');
-            });// no catch, it'll figure it out since the promise is rejected
+            let addressService  = new AddressService();
+            return addressService.classifyAddress(reqAddrNotExist).then(function(data){
+                expect(data.message).to.equal('Non-existent address');
+            });
         });
         it('Should return the address classification if known address passed in', function() {
-            return AddressService.classifyAddress(reqClassifiable).then(function(data){
-                expect(data).to.equal('Within a building address');
-            });// no catch, it'll figure it out since the promise is rejected
+            let addressService  = new AddressService();
+            return addressService.classifyAddress(reqClassifiable).then(function(data){
+                expect(data.message).to.equal('Successful');
+                expect(data.addressType).to.equal('Within a building address');
+            });
         });
     })
 });
