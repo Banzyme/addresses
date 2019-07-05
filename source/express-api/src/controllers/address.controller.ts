@@ -1,18 +1,17 @@
 import { Request, Response } from 'express';
-import {AddressService} from '../services/address.service'
+import {AddressService} from '../services/address.service';
+import {ApiResponse} from '../classes/address-utility.class';
 
 export class AddressController{
     
     static async verifyAddress(req: Request, res:Response){ 
         console.log('receiving data ...');
-        const finalResponse= await AddressService.getInstance().classifyAddress(req.body)
-        .then(response => {
+        try {
+            const response = await AddressService.getInstance().classifyAddress(req.body);
             return response;
-        })
-        .catch(error =>{
-            console.log(error);
-        });
-        return finalResponse;
+        } catch (error) {
+            return ApiResponse.apiResponse500(error);
+        }
 
     }
 }

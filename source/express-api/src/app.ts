@@ -2,6 +2,7 @@ import * as express from 'express';
 import * as swaggerUi from 'swagger-ui-express';
 import * as swaggerDocument from './../swagger.json';
 import { AppRoutesConfig } from './routes';
+import {ApiResponse} from './classes/address-utility.class';
 
 const app = express(), bodyParser = require('body-parser');
 
@@ -20,5 +21,11 @@ app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options))
 app.use('/api/v1', router);
 app.use('/address', router);
 app.use('/', router);
+app.use((req: express.Request, res: express.Response, next: express.NextFunction) => 
+  res.status(404).send(ApiResponse.apiResponse404())
+)
+app.use((req: express.Request, res: express.Response, next: express.NextFunction) => 
+  res.status(500).send(ApiResponse.apiResponse500())
+)
 
 export default app;
