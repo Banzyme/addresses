@@ -55,16 +55,24 @@
         "responseObj": {
             "type": "object",
             "properties": {
-                "Exists": {
+                "status": {
+                    "type": "number",
+                    "description": ""
+                },
+                "message": {
                     "type": "string",
                     "description": ""
                 },
-                "Classification": {
+                "address": {
                     "type": "string",
                     "description": ""
                 },
-                "CorrectAddress": {
+                "addressType": {
                     "type": "string",
+                    "description": ""
+                },
+                "exists": {
+                    "type": "boolean",
                     "description": ""
                 }
             }
