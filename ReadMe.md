@@ -98,7 +98,6 @@
 4.2. Verbose
 
 <hr>
-<hr>
 
 ## Project structure
 
@@ -109,7 +108,6 @@
   * SharedModule
   * index.js
 
-<hr>
 <hr>
 
 5. **Activity Diagram**
