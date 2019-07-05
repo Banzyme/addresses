@@ -67,7 +67,7 @@
                     "type": "string",
                     "description": ""
                 },
-                "addressType": {
+                "addressType":  {
                     "type": "string",
                     "description": ""
                 },
