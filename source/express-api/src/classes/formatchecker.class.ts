@@ -27,9 +27,6 @@ export class FormatCheckerClass{
 
         const errorCount = extraFieldsHandler.handle(address,errors);
         console.log("Error count : "+errorCount)
-        /*
-        ** SOME NOTIFICATION PATTERN?: So user will know if errors or not
-        */
         return errorCount;
     }
 }

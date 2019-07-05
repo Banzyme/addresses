@@ -9,14 +9,11 @@ export class ValidateClass extends AbstractValidator{
     public classify(address: FullStreetAddressModel) {
         throw new Error("Validate class does not classify");
     }
-    /*
-    ** STRATEGY PATTERN?: Implement autocomplete, spellchecking algorithms, Make API Call to MapBox if Google Maps can't find address
-    */
     async validateAddress (address: FullStreetAddressModel ){
         let addressExist = false;
         const formattedAddress: string = `${address.addressLine1}+${address.complexNo}+${address.complexName}+${address.streetNo}+${address.streetName}+${address.suburb}+${address.city}+${address.province}+${address.zipCode}`
         
-        const APIKey: string = ''; // TODO
+        const APIKey: string = ''; // TODO: Before running API add Google Maps API Key
         
         this.mapsAPI = new GoogleMapsAPIAdapter(APIKey);
         await this.mapsAPI.lookupAddress(formattedAddress)
@@ -26,7 +23,6 @@ export class ValidateClass extends AbstractValidator{
         })
         .catch(error => {
             console.log(error);
-            //TO-DO: Make another call to MapBox?
             return addressExist;
         });
         return addressExist;
