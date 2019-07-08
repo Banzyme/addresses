@@ -12,7 +12,7 @@ export class ValidateClass extends AbstractValidator{
     }
     async validateAddress (address: FullStreetAddressModel ){
         const formattedAddress: string = `${address.addressLine1}+${address.complexNo}+${address.complexName}+${address.streetNo}+${address.streetName}+${address.suburb}+${address.city}+${address.province}+${address.zipCode}`
-        const APIKey: string = 'AIzaSyCLtHr-VRFXbfiAjW_gEq64C0AyMjN1B6s'; // TODO: Before running API add Google Maps API Key
+        const APIKey: string = ''; // TODO: Before running API add Google Maps API Key
         
         try {
             this.mapsAPI = new GoogleMapsAPIAdapter(APIKey);
