@@ -11,6 +11,6 @@ export class FarmAddress extends Model<FarmAddress> {
   @Column(DataType.TEXT)
   farmName: string;
 
-  @Column(DataType.INTEGER)
+  @Column(DataType.TEXT)
   areaDescription: string;
 }

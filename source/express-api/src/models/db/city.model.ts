@@ -1,4 +1,4 @@
-import {Table, Column, Model, DataType, ForeignKey, HasMany} from 'sequelize-typescript';
+import {Table, Column, Model, DataType, ForeignKey, HasMany, PrimaryKey} from 'sequelize-typescript';
 import { State } from './state.model';
 import { Suburb } from './suburb.model';
 import { BaseAddress } from './base-address.model';

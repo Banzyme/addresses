@@ -14,6 +14,6 @@ export class ApartmentAddress extends Model<ApartmentAddress> {
   @Column(DataType.INTEGER)
   floor: number;
 
-  @Column(DataType.INTEGER)
+  @Column(DataType.STRING)
   building: string;
 }

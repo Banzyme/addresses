@@ -20,18 +20,6 @@ export class BaseAddress extends Model<BaseAddress> {
   @Column(DataType.INTEGER)
   suburbId: number;
 
-  @ForeignKey(() => City)
-  @Column(DataType.INTEGER)
-  cityId: number;
-
-  @ForeignKey(() => State)
-  @Column(DataType.INTEGER)
-  stateId: number;
-
-  @ForeignKey(() => Country)
-  @Column(DataType.INTEGER)
-  countryId: number;
-
   @HasMany(() => ApartmentAddress)
   apartmentAddresses: ApartmentAddress[];
 
