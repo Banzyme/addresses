@@ -1,7 +1,7 @@
 import {Table, Column, Model, DataType, ForeignKey} from 'sequelize-typescript';
 import { BaseAddress } from './base-address.model';
 
-@Table
+@Table({ timestamps: false })
 export class BusinessAddress extends Model<BusinessAddress> {
 
   @ForeignKey(() => BaseAddress)
@@ -10,6 +10,9 @@ export class BusinessAddress extends Model<BusinessAddress> {
 
   @Column(DataType.TEXT)
   businessName: string;
+
+  @Column(DataType.TEXT)
+  description: string;
 
   @Column(DataType.INTEGER)
   floor: number;

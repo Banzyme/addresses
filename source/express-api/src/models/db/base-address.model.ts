@@ -7,7 +7,7 @@ import { ApartmentAddress } from './apartment-address.model';
 import { BusinessAddress } from './business-address.model';
 import { FarmAddress } from './farm-address.model';
 
-@Table
+@Table({ timestamps: false })
 export class BaseAddress extends Model<BaseAddress> {
 
   @Column(DataType.TEXT)
@@ -19,18 +19,6 @@ export class BaseAddress extends Model<BaseAddress> {
   @ForeignKey(() => Suburb)
   @Column(DataType.INTEGER)
   suburbId: number;
-
-  @ForeignKey(() => City)
-  @Column(DataType.INTEGER)
-  cityId: number;
-
-  @ForeignKey(() => State)
-  @Column(DataType.INTEGER)
-  stateId: number;
-
-  @ForeignKey(() => Country)
-  @Column(DataType.INTEGER)
-  countryId: number;
 
   @HasMany(() => ApartmentAddress)
   apartmentAddresses: ApartmentAddress[];
