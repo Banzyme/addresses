@@ -1,4 +1,4 @@
-import {Table, Column, Model, DataType, ForeignKey} from 'sequelize-typescript';
+import {Table, Column, Model, DataType, ForeignKey, AllowNull} from 'sequelize-typescript';
 import { BaseAddress } from './base-address.model';
 
 @Table({ timestamps: false })
@@ -8,6 +8,7 @@ export class FarmAddress extends Model<FarmAddress> {
   @Column(DataType.INTEGER)
   baseAddressId: number;
 
+  @AllowNull(false)
   @Column(DataType.TEXT)
   farmName: string;
 

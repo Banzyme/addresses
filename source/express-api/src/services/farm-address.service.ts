@@ -10,7 +10,7 @@ export class FarmAddressService {
     }
     
     getFarmAddress(farmName: string, areaDesc: string, baseAddressId: number) {
-        return FarmAddress.findOne({ where: { farmName: farmName, areaDescription: areaDesc, baseAddressId: baseAddressId } });
+        return FarmAddress.findOne({ where: { farmName: farmName, areaDescription: areaDesc, baseAddressId: baseAddressId }, rejectOnEmpty: true});
     }
     
     updateFarmAddress(oldFarmAddress: FarmAddress, newFarmAddress: FarmAddress) {

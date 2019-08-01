@@ -9,7 +9,7 @@ export class CityService {
     }
     
     getCity(name: string, stateId: string) {
-        return City.findOne({ where: {name: name, stateId: stateId} })
+        return City.findOne({ where: {name: name, stateId: stateId}, rejectOnEmpty: true })
     }
     
     updateCity(oldCity: City, newCity: City) {

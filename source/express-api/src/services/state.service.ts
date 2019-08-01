@@ -9,7 +9,7 @@ export class StateService {
     }
     
     getState(name: string, countryId: number) {
-        return State.findOne({ where: {name: name, countryId: countryId} })
+        return State.findOne({ where: {name: name, countryId: countryId}, rejectOnEmpty: true })
     }
     
     updateState(oldState: State, newState: State) {

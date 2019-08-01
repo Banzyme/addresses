@@ -8,7 +8,7 @@ export class ContinentService {
     }
     
     getContinent(name: string) {
-        return Continent.findOne({ where: { name: name } });
+        return Continent.findOne({ where: { name: name }, rejectOnEmpty: true });
     }
     
     updateContinent(oldContinent: Continent, newContinent: Continent) {

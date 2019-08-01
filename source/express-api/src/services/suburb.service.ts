@@ -10,7 +10,7 @@ export class SuburbService {
     }
     
     getSuburb(name: string, postalCode: string) {
-        return Suburb.findOne({ where: {name: name, postalCode: postalCode} })
+        return Suburb.findOne({ where: {name: name, postalCode: postalCode}, rejectOnEmpty: true})
     }
     
     updateSuburb(oldSuburb: Suburb, newSuburb: Suburb) {

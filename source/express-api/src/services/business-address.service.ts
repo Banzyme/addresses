@@ -12,7 +12,7 @@ export class BusinessAddressService {
     }
     
     getBusinessAddress(baseAddressId: number, businessName: string, floor: number, building: string, campus: string) {
-        return BusinessAddress.findOne({ where: { baseAddressId: baseAddressId, businessName: businessName, floor: floor, building: building, campus: campus } });
+        return BusinessAddress.findOne({ where: { baseAddressId: baseAddressId, businessName: businessName, floor: floor, building: building, campus: campus }, rejectOnEmpty: true});
     }
     
     updateBusinessAddress(oldBusinessAddress: BusinessAddress, newBusinessAddress: BusinessAddress) {

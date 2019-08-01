@@ -13,7 +13,20 @@ import { sequelize } from './services/sequelize.service';
 export function migrate() {
     sequelize.addModels([Continent, Country, State, City, Suburb, BaseAddress, ApartmentAddress, BusinessAddress, FarmAddress]);
 
-    Continent.sync({ force: true }).then(() => Continent.bulkCreate([
+    migrateContinent()
+        .then(migrateCountry)
+        .then(migrateState)
+        .then(migrateCity)
+        .then(migrateSuburb)
+        .then(migrateBaseAddress)
+        .then(migrateApartmentAddress)
+        .then(migrateBusinessAddress)
+        .then(migrateFarmAddress);
+
+}
+
+function migrateContinent() {
+    return Continent.sync({ force: true }).then(() => Continent.bulkCreate([
         { name: "Africa" },
         { name: "Asia" },
         { name: "Europe" },
@@ -21,9 +34,11 @@ export function migrate() {
         { name: "South America" },
         { name: "Oceana" },
         { name: "Antarctica" }
-    ]));
+    ]))
+}
 
-    Country.sync({ force: true }).then(() => Country.bulkCreate([
+function migrateCountry() {
+    return Country.sync({ force: true }).then(() => Country.bulkCreate([
         { name: "Afghanistan", continentId: 2, population: 37209007, landArea: 652860.00 },
         { name: "Albania", continentId: 3, population: 2938428, landArea: 27400.00 },
         { name: "Algeria", continentId: 1, population: 42679018, landArea: 2381740.00 },
@@ -221,8 +236,10 @@ export function migrate() {
         { name: "Zambia", continentId: 1, population: 18137369, landArea: 743390.00 },
         { name: "Zimbabwe", continentId: 1, population: 17297495, landArea: 386850.00 }
     ]));
+}
 
-    State.sync({ force: true }).then(() => State.bulkCreate([
+function migrateState() {
+    return State.sync({ force: true }).then(() => State.bulkCreate([
         { name: "Eastern Cape", countryId: 161 },
         { name: "Free State", countryId: 161 },
         { name: "Gauteng", countryId: 161 },
@@ -283,9 +300,11 @@ export function migrate() {
         { name: "Wyoming", countryId: 187 },
         { name: "Wisconsin", countryId: 187 }
     ]));
+}
 
 
-    City.sync({ force: true }).then(() => City.bulkCreate([
+function migrateCity() {
+    return City.sync({ force: true }).then(() => City.bulkCreate([
         { name: "Alice", stateId: 1 },
         { name: "Butterworth", stateId: 1 },
         { name: "East London", stateId: 1 },
@@ -363,8 +382,10 @@ export function migrate() {
         { name: "Swellendam", stateId: 9 },
         { name: "Worcester", stateId: 9 }
     ]));
+}
 
-    Suburb.sync({ force: true }).then(() => Suburb.bulkCreate([
+function migrateSuburb() {
+    return Suburb.sync({ force: true }).then(() => Suburb.bulkCreate([
         { name: "Carter", postalCode: 7884, cityId: 1 },
         { name: "Ritchie", postalCode: 7263, cityId: 2 },
         { name: "Nienow", postalCode: 4431, cityId: 3 },
@@ -594,8 +615,10 @@ export function migrate() {
         { name: "Lynch", postalCode: 9133, cityId: 75 },
         { name: "Koepp", postalCode: 9683, cityId: 7 }
     ]));
+}
 
-    BaseAddress.sync({ force: true }).then(() => BaseAddress.bulkCreate([
+function migrateBaseAddress() {
+    return BaseAddress.sync({ force: true }).then(() => BaseAddress.bulkCreate([
         { addressLine1: "55403 Purdy Greens", addressLine2: "3337 Chaz Ramp", suburbId: 1 },
         { addressLine1: "3028 Schinner Run Suite 299", addressLine2: "7619 Deborah Junction Suite 001", suburbId: 2 },
         { addressLine1: "87660 Bailey Garden", addressLine2: "938 Metz Oval", suburbId: 3 },
@@ -827,8 +850,10 @@ export function migrate() {
         { addressLine1: "Lacey Avenue", addressLine2: "", suburbId: 1 },
         { addressLine1: "Maya Road", addressLine2: "", suburbId: 2 }
     ]));
+}
 
-    ApartmentAddress.sync({ force: true }).then(() => ApartmentAddress.bulkCreate([
+function migrateApartmentAddress() {
+    return ApartmentAddress.sync({ force: true }).then(() => ApartmentAddress.bulkCreate([
         { baseAddressId: 21, room: 21, floor: 9, building: "Bailey Building" },
         { baseAddressId: 22, room: 32, floor: 1, building: "Reichert Building" },
         { baseAddressId: 23, room: 23, floor: 7, building: "Stroman Building" },
@@ -850,9 +875,11 @@ export function migrate() {
         { baseAddressId: 38, room: 13, floor: 7, building: "Parker Grove Apartments" },
         { baseAddressId: 38, room: 14, floor: 7, building: "Parker Grove Apartments" }
     ]));
+}
 
 
-    BusinessAddress.sync({ force: true }).then(() => BusinessAddress.bulkCreate([
+function migrateBusinessAddress() {
+    return BusinessAddress.sync({ force: true }).then(() => BusinessAddress.bulkCreate([
         { baseAddressId: 41, businessName: "Hilpert-West", description: "Facetoface analyzing service-desk", floor: 1, building: "MediumAquaMarine Grove", campus: "Kilback Campus" },
         { baseAddressId: 42, businessName: "Herzog-Heidenreich", description: "Networked high-level time-frame", floor: 7, building: "Magenta Square", campus: "Bode Campus" },
         { baseAddressId: 43, businessName: "Boyer, Mann and Adams", description: "Automated explicit collaboration", floor: 2, building: "MediumOrchid Gardens", campus: "Thompson Campus" },
@@ -915,8 +942,10 @@ export function migrate() {
         { baseAddressId: 73, businessName: "Mante, Dietrich and Hamill Ltd", description: "De-engineered assymetric localareanetwork", floor: 5, building: "AntiqueWhite Vale" },
         { baseAddressId: 74, businessName: "Leannon and Sons and Sons", description: "Adaptive zerotolerance openarchitecture", floor: 8, building: "Gainsboro Place" }
     ]));
+}
 
-    FarmAddress.sync({ force: true }).then(() => FarmAddress.bulkCreate([
+function migrateFarmAddress() {
+    return FarmAddress.sync({ force: true }).then(() => FarmAddress.bulkCreate([
         { baseAddressId: 1, farmName: "Mr. Sienna's Farm", areaDescription: "opposite farm dam" },
         { baseAddressId: 2, farmName: "Mr. SeaGreen's Farm", areaDescription: "next to the cow" },
         { baseAddressId: 3, farmName: "Prof. Green's Farm", areaDescription: "adjacent to grass" },

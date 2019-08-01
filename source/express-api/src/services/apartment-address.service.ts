@@ -12,7 +12,7 @@ export class ApartmentAddressService {
     }
     
     getApartmentAddress(room: number, floor: number, building: string, baseAddressId: number) {
-        return ApartmentAddress.findOne({ where: {room: room, floor: floor, building: building, baseAddressId: baseAddressId } })
+        return ApartmentAddress.findOne({ where: {room: room, floor: floor, building: building, baseAddressId: baseAddressId }, rejectOnEmpty: true})
     }
     
     updateApartmentAddress(oldApartmentAddress: ApartmentAddress, newApartmentAddress: ApartmentAddress) {

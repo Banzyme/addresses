@@ -51,7 +51,7 @@ export const addressRoutes = (router: express.Router) => {
             service.getCountry(data.name, data.continentId, data.population, data.landArea).then( val => {
                 res.send(val)
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             })
         })
         .post((req: Request, res: Response) => {
@@ -60,7 +60,7 @@ export const addressRoutes = (router: express.Router) => {
             service.addCountry(data.name, data.continentId, data.population, data.landArea).then(val => {
                 res.sendStatus(200)
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });
         })
         .delete((req: Request, res: Response) => {
@@ -69,7 +69,7 @@ export const addressRoutes = (router: express.Router) => {
             service.deleteCountry(data).then(val => {
                 res.sendStatus(200)
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });
         })
         .put((req: Request, res: Response) => {
@@ -78,7 +78,7 @@ export const addressRoutes = (router: express.Router) => {
             service.updateCountry(data.oldCountry, data.newCountry).then(val => {
                 res.sendStatus(200);
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });
         })
     router.route('/continent')
@@ -88,7 +88,7 @@ export const addressRoutes = (router: express.Router) => {
             service.getContinent(data.name).then( val => {
                 res.send(val)
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             })
         })
         .post((req: Request, res: Response) => {
@@ -97,7 +97,7 @@ export const addressRoutes = (router: express.Router) => {
             service.addContinent(data.name).then(val => {
                 res.sendStatus(200)
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });
         })
         .delete((req: Request, res: Response) => {
@@ -106,7 +106,7 @@ export const addressRoutes = (router: express.Router) => {
             service.deleteContinent(data).then(val => {
                 res.sendStatus(200);
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });;
         })
         .put((req: Request, res: Response) => {
@@ -115,7 +115,7 @@ export const addressRoutes = (router: express.Router) => {
             service.updateContinent(data.oldContinent, data.newContinent).then(val => {
                 res.sendStatus(200);
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });;
         })
     router.route('/farm')
@@ -125,7 +125,7 @@ export const addressRoutes = (router: express.Router) => {
             service.getFarmAddress(data.farmName, data.areaDesc, data.baseAddressId).then( val => {
                 res.send(val)
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             })
         })
         .post((req: Request, res: Response) => {
@@ -134,7 +134,7 @@ export const addressRoutes = (router: express.Router) => {
             service.addFarmAddress(data.farmName, data.areaDesc, data.baseAddressId).then(val => {
                 res.sendStatus(200)
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });
         })
         .delete((req: Request, res: Response) => {
@@ -143,7 +143,7 @@ export const addressRoutes = (router: express.Router) => {
             service.deleteFarmAddress(data).then(val => {
                 res.sendStatus(200);
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });;
         })
         .put((req: Request, res: Response) => {
@@ -152,7 +152,7 @@ export const addressRoutes = (router: express.Router) => {
             service.updateFarmAddress(data.oldFarmAddress, data.newFarmAddress).then(val => {
                 res.sendStatus(200);
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });;
         })
     router.route('/state')
@@ -162,7 +162,7 @@ export const addressRoutes = (router: express.Router) => {
             service.getState(data.name, data.countryId).then( val => {
                 res.send(val)
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             })
         })
         .post((req: Request, res: Response) => {
@@ -171,7 +171,7 @@ export const addressRoutes = (router: express.Router) => {
             service.addState(data.name, data.countryId).then(val => {
                 res.sendStatus(200)
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });
         })
         .delete((req: Request, res: Response) => {
@@ -180,7 +180,7 @@ export const addressRoutes = (router: express.Router) => {
             service.deleteState(data).then(val => {
                 res.sendStatus(200);
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });;
         })
         .put((req: Request, res: Response) => {
@@ -189,7 +189,7 @@ export const addressRoutes = (router: express.Router) => {
             service.updateState(data.oldState, data.newState).then(val => {
                 res.sendStatus(200);
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });;
         })
     router.route('/suburb')
@@ -199,7 +199,7 @@ export const addressRoutes = (router: express.Router) => {
             service.getSuburb(data.name, data.postalCode).then( val => {
                 res.send(val)
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             })
         })
         .post((req: Request, res: Response) => {
@@ -208,7 +208,7 @@ export const addressRoutes = (router: express.Router) => {
             service.addSuburb(data.name, data.postalCode, data.BusinessAddressId).then(val => {
                 res.sendStatus(200)
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });
         })
         .delete((req: Request, res: Response) => {
@@ -217,7 +217,7 @@ export const addressRoutes = (router: express.Router) => {
             service.deleteSuburb(data).then(val => {
                 res.sendStatus(200);
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });;
         })
         .put((req: Request, res: Response) => {
@@ -226,7 +226,7 @@ export const addressRoutes = (router: express.Router) => {
             service.updateSuburb(data.oldSuburb, data.newSuburb).then(val => {
                 res.sendStatus(200);
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });;
         })
     router.route('/city')
@@ -236,7 +236,7 @@ export const addressRoutes = (router: express.Router) => {
             service.getCity(data.name, data.stateId).then( val => {
                 res.send(val)
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             })
         })
         .post((req: Request, res: Response) => {
@@ -245,7 +245,7 @@ export const addressRoutes = (router: express.Router) => {
             service.addCity(data.name, data.stateId).then(val => {
                 res.sendStatus(200)
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });
         })
         .delete((req: Request, res: Response) => {
@@ -254,7 +254,7 @@ export const addressRoutes = (router: express.Router) => {
             service.deleteCity(data).then(val => {
                 res.sendStatus(200);
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });;
         })
         .put((req: Request, res: Response) => {
@@ -263,7 +263,7 @@ export const addressRoutes = (router: express.Router) => {
             service.updateCity(data.oldCity, data.newCity).then(val => {
                 res.sendStatus(200);
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });;
         })
     router.route('/business')
@@ -273,7 +273,7 @@ export const addressRoutes = (router: express.Router) => {
             service.getBusinessAddress(data.baseAddressId, data.businessName, data.floor, data.building, data.campus).then( val => {
                 res.send(val)
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             })
         })
         .post((req: Request, res: Response) => {
@@ -282,7 +282,7 @@ export const addressRoutes = (router: express.Router) => {
             service.addBusinessAddress(data.baseAddressId, data.businessName, data.floor, data.building, data.campus).then( val => {
                 res.send(val)
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });
         })
         .delete((req: Request, res: Response) => {
@@ -291,7 +291,7 @@ export const addressRoutes = (router: express.Router) => {
             service.deleteBusinessAddress(data).then(val => {
                 res.sendStatus(200);
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });;
         })
         .put((req: Request, res: Response) => {
@@ -300,7 +300,7 @@ export const addressRoutes = (router: express.Router) => {
             service.updateBusinessAddress(data.oldBusinessAddress, data.newBusinessAddress).then(val => {
                 res.sendStatus(200);
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });;
         })
     router.route('/baseAddress')
@@ -310,7 +310,7 @@ export const addressRoutes = (router: express.Router) => {
             service.getBaseAddress(data.addressLine1, data.addressLine2, data.suburbId).then( val => {
                 res.send(val)
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             })
         })
         .post((req: Request, res: Response) => {
@@ -319,7 +319,7 @@ export const addressRoutes = (router: express.Router) => {
             service.addBaseAddress(data.addressLine1, data.addressLine2, data.suburbId).then( val => {
                 res.send(val)
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });
         })
         .delete((req: Request, res: Response) => {
@@ -328,7 +328,7 @@ export const addressRoutes = (router: express.Router) => {
             service.deleteBaseAddress(data).then(val => {
                 res.sendStatus(200);
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });;
         })
         .put((req: Request, res: Response) => {
@@ -337,7 +337,7 @@ export const addressRoutes = (router: express.Router) => {
             service.updateBaseAddress(data.oldBaseAddress, data.newBaseAddress).then(val => {
                 res.sendStatus(200);
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });;
         })
     router.route('/apartment')
@@ -347,7 +347,7 @@ export const addressRoutes = (router: express.Router) => {
             service.getApartmentAddress(data.room, data.floor, data.building, data.baseAddressId).then( val => {
                 res.send(val)
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             })
         })
         .post((req: Request, res: Response) => {
@@ -356,7 +356,7 @@ export const addressRoutes = (router: express.Router) => {
             service.addApartmentAddress(data.room, data.floor, data.building, data.baseAddressId).then( val => {
                 res.send(val)
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });
         })
         .delete((req: Request, res: Response) => {
@@ -365,7 +365,7 @@ export const addressRoutes = (router: express.Router) => {
             service.deleteApartmentAddress(data).then(val => {
                 res.sendStatus(200);
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });;
         })
         .put((req: Request, res: Response) => {
@@ -374,7 +374,7 @@ export const addressRoutes = (router: express.Router) => {
             service.updateApartmentAddress(data.oldApartmentAddress, data.newApartmentAddress).then(val => {
                 res.sendStatus(200);
             }).catch(err => {
-                res.sendStatus(402);
+                res.sendStatus(404);
             });;
         })
 }

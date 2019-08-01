@@ -11,7 +11,7 @@ export class CountryService {
     }
     
     getCountry(name: string, continentId: number, population: number, landArea: number) {
-        return Country.findOne({ where: {name: name, continentId: continentId, population: population, landArea: landArea } })
+        return Country.findOne({ where: {name: name, continentId: continentId, population: population, landArea: landArea }, rejectOnEmpty: true })
     }
     
     updateCountry(oldCountry: Country, newCountry: Country) {
