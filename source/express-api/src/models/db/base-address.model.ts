@@ -7,7 +7,7 @@ import { ApartmentAddress } from './apartment-address.model';
 import { BusinessAddress } from './business-address.model';
 import { FarmAddress } from './farm-address.model';
 
-@Table
+@Table({ timestamps: false })
 export class BaseAddress extends Model<BaseAddress> {
 
   @Column(DataType.TEXT)

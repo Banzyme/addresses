@@ -3,7 +3,7 @@ import { Country } from './country.model';
 import { City } from './city.model';
 import { BaseAddress } from './base-address.model';
 
-@Table
+@Table({ timestamps: false })
 export class State extends Model<State> {
  
   @Column(DataType.TEXT)
@@ -15,7 +15,4 @@ export class State extends Model<State> {
   
   @HasMany(() => City)
   cities: City[];
-
-  @HasMany(() => BaseAddress)
-  baseAddresses: BaseAddress[];
 }

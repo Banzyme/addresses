@@ -1,15 +1,18 @@
 import app from './app';
 
 import { sequelize } from './services/sequelize.service';
+import { migrate } from './db-migration';
 
 sequelize
   .authenticate()
   .then(() => {
-    console.log('Connection has been established successfully.');
+    console.log('Database connection successful');
+    migrate();
   })
   .catch(err => {
-    console.error('Unable to connect to the database:', err);
+    console.error('Database connection unsuccessful: ', err);
   });
+
 
 const server = app.listen(app.get('PORT'), () => {
     console.log(

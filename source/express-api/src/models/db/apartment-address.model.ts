@@ -1,7 +1,7 @@
 import {Table, Column, Model, DataType, ForeignKey} from 'sequelize-typescript';
 import { BaseAddress } from './base-address.model';
 
-@Table
+@Table({ timestamps: false })
 export class ApartmentAddress extends Model<ApartmentAddress> {
 
   @ForeignKey(() => BaseAddress)

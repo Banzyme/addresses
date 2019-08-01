@@ -2,7 +2,7 @@ import {Table, Column, Model, DataType, ForeignKey, HasMany, PrimaryKey } from '
 import { City } from './city.model';
 import { BaseAddress } from './base-address.model';
 
-@Table
+@Table({ timestamps: false })
 export class Suburb extends Model<Suburb> {
 
   @Column(DataType.TEXT)
